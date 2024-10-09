@@ -152,7 +152,7 @@ using LOCKUPCLASHCOLOR = Mix<
 >;
 
 // Randomly select between methods of choosing blast position
-using BLAST_SELECT_RANDOM = IntSelectX<
+using BLAST_SELECT_RANDOM = IntSelectX<  // This is no longer working with ProffieOS 7.14, error: "..\ProffieOS_7.14\config\master\Common_Misc.h:155:29: error: 'IntSelectX' does not name a type; did you mean 'IntSelect'?"
 	EffectRandomF<EFFECT_BLAST>,
 	// Select one of the following at random
 	BladeAngle<>,
