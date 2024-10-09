@@ -208,7 +208,7 @@ Preset presets[] = {
 
 //	 /*
 // Basic Fonts: 6 by Kyberphonic
-	{ "001_BLUE;;common","tracks/fates.wav",
+	{ "001_BLUE;common","tracks/fates.wav",
 		StylePtr <MasterStyle>
 		() //, "blue"
 	},
@@ -595,7 +595,7 @@ Preset presets[] = {
 		() //, "partyfoul"
 	},
 
-	// Lightsaber of the Bells by Jérôme Tremblay ( Jay DaloRian) 
+	// Lightsaber of the Bells by JÃ©rÃ´me Tremblay ( Jay DaloRian) 
 	{ "102_Lightsaber_Of_The_Bells;common", "tracks/",
 		StylePtr <MasterStyle>
 		() //, "lightsaberofthebells"
@@ -1407,7 +1407,7 @@ Preset presets[] = {
 				>
 			>
 		>
-		() //, “Ezra”
+		() //, Â“EzraÂ”
 	},
 
 
