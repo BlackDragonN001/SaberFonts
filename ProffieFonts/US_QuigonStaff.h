@@ -60,11 +60,13 @@ const unsigned int maxLedsPerStrip = 144;
 common
 tracks
 .voices
+	Ahsoka_AS
 	Ahsoka_CW
 	Anakin_CW
 	Anakin_HC
 	Ben_Kenobi
 	Bendu
+	BlackBishop
 	C3P0
 	Cal_Kestis
 	Din_Djarin
@@ -73,6 +75,7 @@ tracks
 	Emperor
 	Ezra
 	General_Kenobi
+	GladOS
 	Hati
 	Hyang
 	Kanan
@@ -80,6 +83,7 @@ tracks
 	Luke_ANH
 	Mace
 	Malgus
+	Malgus2
 	Maul
 	Narrator
 	Obi-Wan_CW
@@ -87,7 +91,11 @@ tracks
 	Princess_Leia
 	Qui-Gon
 	Rebel_Leia
+	Rey
+	Sabine_AS
 	Savage
+	SeventhSisterMasked
+	SeventhSisterUnmasked
 	Skoll
 	Starkiller
 	The_Ronin
@@ -137,6 +145,7 @@ tracks
 038_Knighthood
 039_Corvus_Tano
 040_Kashyyyk_Knight
+041_Apologize
 
 // Paid Fonts
 075_Ascension
