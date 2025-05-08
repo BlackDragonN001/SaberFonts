@@ -1,3 +1,5 @@
+// Proffie blade Style code "Master" for Proffieboard V2.2
+
 // Include common "using" layer styles from another file
 #include "Common_Colors.h" // Color / color blend defines
 #include "Common_Misc.h" // Misc common code and effects
@@ -19,11 +21,12 @@
 #include "Common_PowerDown.h" // Effects for RETRACTION_COOL_DOWN_ARG
 #include "Common_PostOff.h" // Effects for OFF_OPTION_ARG (They should really add a POSTOFF_OPTION_ARG...)
 #include "Common_Specials.h" // Special Effects (for use one each for EFFECT_USER1 - EFFECT_USER8)
+#include "Common_Buttons.h" // Button Blade Style effects.
 
 /* Based on Fett263 Static/Flicker (Primary Blade) OS6 Style, heavily modified (Added more options)
 https://fett263.s3.us-east-2.amazonaws.com/fett263-proffieOS6-style-library.html#Static/Flicker
 OS6.5 v1.0
-This Style Contains ???? (a lot) Unique Combinations
+This Style Contains 5,596,631,040 (a lot) possible Combinations
 Style Options:
 0: Static Color (Base Color)
 1: Audio Flicker (Base Color, Alt Color)
