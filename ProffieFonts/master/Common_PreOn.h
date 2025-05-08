@@ -249,7 +249,7 @@ using PreOn_Faulty_Ignition = TrConcat<
 			Scale<
 				NoisySoundLevel,
 				Int<-10000>,
-				Int<36000>
+				PREON_SIZE //Int<36000>
 			>,
 			Int<-4000>
 		>
@@ -314,7 +314,7 @@ using PreOn_Faulty_Ignition_Volatile = TrConcat<
 			Scale<
 				NoisySoundLevel,
 				Int<-10000>,
-				Int<36000>
+				PREON_SIZE //Int<36000>
 			>,
 			Int<-4000>
 		>
@@ -818,7 +818,7 @@ using PreOn_Dim_Blade = TrConcat<
 		AlphaL<
 			AudioFlicker<
 				COLOR_MIX_P<12, PREONCOLOR>, //Rgb<0,31,0>
-				COLOR_MIX_P<12, PREONCOLOR> //Rgb<0,15,0>
+				COLOR_MIX_P<6, PREONCOLOR> //Rgb<0,15,0>
 			>,
 			Int<100>
 		>
