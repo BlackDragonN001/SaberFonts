@@ -1,50 +1,58 @@
 #ifdef CONFIG_TOP
-#include "proffieboard_config.h"
-#define NUM_BLADES 1
+#include "proffieboard_v3_config.h" //#include "proffieboard_config.h"
+#define NUM_BLADES 2
 #define NUM_BUTTONS 1
-#define VOLUME 1700
+#define VOLUME 2000
 const unsigned int maxLedsPerStrip = 144;
-#define CLASH_THRESHOLD_G 17.0
-#define MOTION_TIMEOUT 60 * 5 * 1000
-#define IDLE_OFF_TIME 60 * 5 * 1000
+#define CLASH_THRESHOLD_G 4.5 //17.0
+//#define PROFFIEOS_DONT_USE_GYRO_FOR_CLASH
+#define MOTION_TIMEOUT 60 * 5 * 1000 //5 minutes
+#define IDLE_OFF_TIME 60 * 5 * 1000 //5 minutes
 #define ENABLE_AUDIO
 #define ENABLE_MOTION
 #define ENABLE_WS2811
 #define ENABLE_SD
 #define ENABLE_SERIAL
+// OLED
+//#define ENABLE_SSD1306
+//#define OLED_FLIP_180
+#define SHARED_POWER_PINS
+//#define COLOR_CHANGE_DIRECT // this enables "click to change"
 //#define NO_COLOR_SWING
 //#define NO_SAVED_PRESET
 //#define NO_LOCKUP_HOLD
 #define SAVE_STATE //#define SAVE_PRESET
-//#define COLOR_CHANGE_DIRECT // this enables "click to change"
 // this disables some diagnostic commands to save memory
 #define DISABLE_DIAGNOSTIC_COMMANDS
+#define DISABLE_BASIC_PARSER_STYLES
 //#define DISABLE_TALKIE // Changes talky to simple beeps
 //#define FEMALE_TALKIE_VOICE
 #define NO_REPEAT_RANDOM
 #define KILL_OLD_PLAYERS
+#define KEEP_SAVEFILES_WHEN_PROGRAMMING
+// Fett263's prop defines
 //#define FETT263_TWIST_ON
 //#define FETT263_TWIST_ON_NO_BM
 //#define FETT263_TWIST_OFF
 #define FETT263_SWING_ON
 #define FETT263_SWING_ON_NO_BM
 #define FETT263_SWING_ON_SPEED 600
-#define FETT263_THRUST_ON
-#define FETT263_THRUST_ON_NO_BM
-#define FETT263_STAB_ON
-#define FETT263_STAB_ON_NO_BM
+//#define FETT263_THRUST_ON
+//#define FETT263_THRUST_ON_NO_BM
+//#define FETT263_STAB_ON
+//#define FETT263_STAB_ON_NO_BM
 #define FETT263_BATTLE_MODE
 #define FETT263_LOCKUP_DELAY 200
 #define FETT263_FORCE_PUSH
-#define FETT263_FORCE_PUSH_LENGTH 5
+#define FETT263_FORCE_PUSH_LENGTH 6
+//#define FETT263_CLASH_STRENGTH_SOUND
 #define FETT263_SAY_BATTERY_PERCENT
 #define FETT263_MOTION_WAKE_POWER_BUTTON
+#define FETT263_HOLD_BUTTON_OFF
 #define FETT263_SPECIAL_ABILITIES //#define FETT263_MULTI_PHASE
 // Edit Mode
-#define FETT263_EDIT_MODE_MENU
 #define ENABLE_ALL_EDIT_OPTIONS
-#define DISABLE_BASIC_PARSER_STYLES
-#define KEEP_SAVEFILES_WHEN_PROGRAMMING
+#define FETT263_EDIT_MODE_MENU
 #define FETT263_SAY_COLOR_LIST
 #define FETT263_SAY_COLOR_LIST_CC
 #endif
@@ -200,26 +208,26 @@ tracks
 #ifdef CONFIG_PRESETS
 
 // Master Font for Edit mode, create /customize your own blade styles using StylePtr<MasterStyle>() and Fett263's Edit Menu.
-#include "master/Master_v3.h"
+#include "master/Master_v2.h"
 
 // Font Presets. Just load as many font folders as you want with Master Style.
 Preset presets[] = {
 
 	// Third Sister V2 Test Style
 
-	 /*
+//	 /*
 	// One starter font, use Copy Preset to make more.
 	{ "059_RM_Third;common", "tracks/",
-		StylePtr <MasterStyle>
-		()
+		StylePtr <MasterStyle>(),
+		StylePtr <ButtonStyle_Glowing>()
 	},
 	// */
 
-//	 /*
+	 /*
 // Basic Fonts: 6 by Kyberphonic
-	{ "001_BLUE;;common","tracks/fates.wav",
-		StylePtr <MasterStyle>
-		() //, "blue"
+	{ "001_BLUE;common","tracks/fates.wav",
+		StylePtr <MasterStyle>(), 
+		StylePtr <ButtonStyle_Glowing>() //, "blue"
 	},
 
 	/*
@@ -3533,12 +3541,20 @@ Special Ability 8: Play Sound - Ignite Uses tr01.wav or tr/001/000.wav
 };
 
 BladeConfig blades[] = {
+  { 0, WS281XBladePtr<138, bladePin, Color8::GRB, PowerPINS<bladePowerPin2, bladePowerPin3> >(),
+	   SimpleBladePtr<CreeXPE2WhiteTemplate<550>, NoLED, NoLED, NoLED, bladePowerPin4, -1, -1, -1>()
+  , CONFIGARRAY(presets) },
+};
+
+/*
+BladeConfig blades[] = {
  { 0, WS2811BladePtr<132, WS2811_ACTUALLY_800kHz | WS2811_GRB>(), CONFIGARRAY(presets) },
   };
+ */
 #endif
 
 #ifdef CONFIG_BUTTONS
 Button PowerButton(BUTTON_POWER, powerButtonPin, "pow");
-/*Button AuxButton(BUTTON_AUX, auxPin, "aux");*/
+//Button AuxButton(BUTTON_AUX, auxPin, "aux");
 #endif
 
