@@ -205,14 +205,23 @@ tracks
 
 */
 
+// Enables Proffie 3.9 version.
+#define MASTERV3
+
+
 #ifdef CONFIG_PRESETS
 
+#ifndef MASTERV3
 // Master Font for Edit mode, create /customize your own blade styles using StylePtr<MasterStyle>() and Fett263's Edit Menu.
 #include "master/Master_v2.h"
+#else
+#include "master/Master_v3.h"
+#endif
 
 // Font Presets. Just load as many font folders as you want with Master Style.
 Preset presets[] = {
 
+#ifndef MASTERV3
 	// Third Sister V2 Test Style
 
 //	 /*
@@ -223,13 +232,14 @@ Preset presets[] = {
 	},
 	// */
 
-	 /*
+#else
+	// /*
 // Basic Fonts: 6 by Kyberphonic
 	{ "001_BLUE;common","tracks/fates.wav",
 		StylePtr <MasterStyle>(), 
 		StylePtr <ButtonStyle_Glowing>() //, "blue"
 	},
-
+#endif
 	/*
 	{ "002_GREEN;common","tracks/fates.wav",
 		StylePtr <MasterStyle>
